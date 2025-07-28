@@ -1,18 +1,14 @@
 import React from 'react'
 import { Routes } from 'react-router-dom'
+import Footer from './Components/Footer'
 
 const App = () => {
   return (
     <>
-    <Routes>
-      {/* Define your routes here */}
-      {/* Example: <Route path="/" element={<Home />} /> */}
-      
-      
+ 
 
-
-
-    </Routes>
+ <h1>hello</h1>
+    <Footer/>
     
     </>
   )
