@@ -26,4 +26,35 @@
     npm run dev
 ```
 
-5.
+### Instructions for tailwindcss follow these 3 steps
+
+[tailwind official doc] (https://tailwindcss.com/docs/installation/using-vite)
+
+1. Install tailwindcss
+
+``` 
+        npm install tailwindcss @tailwindcss/vite
+```
+
+2. Configure the plugin Add the tailwind directives at the top of the `vite.config.js` file
+
+    ```
+            import { defineConfig } from 'vite'
+            import tailwindcss from '@tailwindcss/vite'
+            export default defineConfig({
+            plugins: [
+            tailwindcss(),
+        ],
+    })      
+
+    ```
+
+3. Add the tailwind directives at the top of the `index.css` file
+
+```
+    @import "tailwindcss";
+```
+
+
+
+
