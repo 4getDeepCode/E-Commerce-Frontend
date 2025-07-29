@@ -1,10 +1,24 @@
 import { FiMenu } from 'react-icons/fi';
 import { AiFillCloseCircle } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Components/Footer';
+import { useDispatch } from 'react-redux';
+import { useSelector as userSelector } from 'react-redux';
+import { useSelector as useSelectort } from 'react-redux';
+
+
+
+
 
 
 function HomeLayout({ children }) {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const isloggedIn = useSelectort((state) => state?.auth?.isLoggedIn);
+
+    const role = userSelector((state) => state?.auth?.role);
 
     function changeWidth() {
 
@@ -17,11 +31,20 @@ function HomeLayout({ children }) {
         const element = document.getElementsByClassName('drawer-toggle');
         element[0].checked = false;
 
-         const drawerSide = document.getElementsByClassName('drawer-side');
+        const drawerSide = document.getElementsByClassName('drawer-side');
         drawerSide[0].style.width = '0';
         // changeWidth();
     }
 
+
+    function handleLogout(e) {
+        e.preventDefault();
+        // const res = await dispatch(logout()); 
+        if (res?.payload?.success) 
+
+        navigate('/');
+
+    }
 
 
 
@@ -52,7 +75,7 @@ function HomeLayout({ children }) {
                         <li className='w-fit absolute right-2 z-50 '>
                             <button onClick={hideDrawer}>
                                 <AiFillCloseCircle size={20}
-                                     />
+                                />
 
                             </button>
                         </li>
@@ -61,18 +84,68 @@ function HomeLayout({ children }) {
                             <Link to="/">Home</Link>
                         </li>
 
-                        <li>
-                            <Link to="/products">All Products</Link>
-                        </li>
+                        {isloggedIn && role === 'ADMIN' && (
+                            <li>
+                                <Link to="/admin/dashboard">Dashboard</Link>
+                            </li>
+                        )}
 
                         <li>
-                            <Link to="/about">About Us</Link>
+                            <Link to="/products">All Products</Link>
                         </li>
 
 
                         <li>
                             <Link to="/contact">Contact Us</Link>
                         </li>
+
+
+                        <li>
+                            <Link to="/about">About Us</Link>
+                        </li>
+
+
+                        {!isloggedIn && (
+
+
+                            <li >
+
+                                <div className="w-full flex item-center justify-center">
+                                    <button className=" btn-primary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
+                                        <Link to="/login">Login</Link>
+                                    </button>
+
+                                    <button className=" btn-secondary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
+                                        <Link to="/signup">Signup</Link>
+                                    </button>
+
+                                </div>
+
+                            </li>
+
+                        )}
+
+                         {isloggedIn && (
+
+
+                            <li >
+
+                                <div className="w-full flex item-center justify-center">
+                                    <button className=" btn-primary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
+                                        <Link to="/user/profile">Profile</Link>
+                                    </button>
+
+                                    <button className=" btn-secondary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
+                                        <Link onClick={handleLogout}>logout</Link>
+                                    </button>
+
+                                </div>
+
+                            </li>
+
+                        )}
+
+
 
 
 
