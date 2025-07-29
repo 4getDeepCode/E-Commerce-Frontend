@@ -5,7 +5,7 @@ import Footer from '../Components/Footer';
 import { useDispatch } from 'react-redux';
 import { useSelector as userSelector } from 'react-redux';
 import { useSelector as useSelectort } from 'react-redux';
-
+import Logo from '../Assets/moto.jpeg'
 
 
 
@@ -40,7 +40,7 @@ function HomeLayout({ children }) {
     function handleLogout(e) {
         e.preventDefault();
         // const res = await dispatch(logout()); 
-        if (res?.payload?.success) 
+        // if (res?.payload?.success) 
 
         navigate('/');
 
@@ -69,8 +69,9 @@ function HomeLayout({ children }) {
 
                 <div className="drawer-side w-0 ">
                     <label htmlFor="my-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-48  sm:w-80 bg-base-100 text-base-content relative ">
-                        {/* Sidebar content here */}
+                    <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-base-100 text-base-content relative ">
+
+
 
                         <li className='w-fit absolute right-2 z-50 '>
                             <button onClick={hideDrawer}>
@@ -108,7 +109,7 @@ function HomeLayout({ children }) {
                         {!isloggedIn && (
 
 
-                            <li >
+                            <li className='absolute bottom-4 w-[90%]'>
 
                                 <div className="w-full flex item-center justify-center">
                                     <button className=" btn-primary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
@@ -125,7 +126,7 @@ function HomeLayout({ children }) {
 
                         )}
 
-                         {isloggedIn && (
+                        {isloggedIn && (
 
 
                             <li >
@@ -154,6 +155,7 @@ function HomeLayout({ children }) {
 
             </div>
 
+           
 
             {children}
 
