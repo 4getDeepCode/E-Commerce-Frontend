@@ -53,8 +53,15 @@
 
 ```
     @import "tailwindcss";
+    
 ```
 
+4. Add the following details in the plugin property of daisyui
+
+```
+
+@plugin "daisyui";
+```
 
 
 ### Adding plugins and dependencies
