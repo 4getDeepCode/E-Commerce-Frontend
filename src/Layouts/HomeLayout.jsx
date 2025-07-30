@@ -50,116 +50,125 @@ function HomeLayout({ children }) {
 
 
     return (
+
+            
+        
         <div className="min-h-[90vh] ">
 
-            <div className="drawer absolute left-0 z-50 w-fit">
-
-                <input className="drawer-toggle" id="my-drawer" type="checkbox" />
 
 
-                <div className="drawer-contant">
-                    <label htmlFor="my-drawer" className="cursor-pointer relative *:">
+                <div className="drawer absolute left-0 z-50 w-fit">
 
-                        <FiMenu
-                            onClick={changeWidth}
-                            size={"32px"}
-                            className="text-bold text-white-800 m-4" />
-                    </label>
-                </div>
-
-                <div className="drawer-side w-0 ">
-                    <label htmlFor="my-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-base-100 text-base-content relative ">
+                    <input className="drawer-toggle" id="my-drawer" type="checkbox" />
 
 
+                    <div className="drawer-contant">
+                        <label htmlFor="my-drawer" className="cursor-pointer relative *:">
 
-                        <li className='w-fit absolute right-2 z-50 '>
-                            <button onClick={hideDrawer}>
-                                <AiFillCloseCircle size={20}
-                                />
+                            <FiMenu
+                                onClick={changeWidth}
+                                size={"32px"}
+                                className="text-bold text-white-800 m-4" />
+                        </label>
+                    </div>
 
-                            </button>
-                        </li>
+                    <div className="drawer-side w-0 ">
+                        <label htmlFor="my-drawer" className="drawer-overlay"></label>
+                        <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-base-100 text-base-content relative ">
 
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
 
-                        {isloggedIn && role === 'ADMIN' && (
+
+                            <li className='w-fit absolute right-2 z-50 '>
+                                <button onClick={hideDrawer}>
+                                    <AiFillCloseCircle size={20}
+                                    />
+
+                                </button>
+                            </li>
+
                             <li>
-                                <Link to="/admin/dashboard">Dashboard</Link>
-                            </li>
-                        )}
-
-                        <li>
-                            <Link to="/products">All Products</Link>
-                        </li>
-
-
-                        <li>
-                            <Link to="/contact">Contact Us</Link>
-                        </li>
-
-
-                        <li>
-                            <Link to="/about">About Us</Link>
-                        </li>
-
-
-                        {!isloggedIn && (
-
-
-                            <li className='absolute bottom-4 w-[90%]'>
-
-                                <div className="w-full flex item-center justify-center">
-                                    <button className=" btn-primary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
-                                        <Link to="/login">Login</Link>
-                                    </button>
-
-                                    <button className=" btn-secondary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
-                                        <Link to="/signup">Signup</Link>
-                                    </button>
-
-                                </div>
-
+                                <Link to="/">Home</Link>
                             </li>
 
-                        )}
+                            {isloggedIn && role === 'ADMIN' && (
+                                <li>
+                                    <Link to="/admin/dashboard">Dashboard</Link>
+                                </li>
+                            )}
 
-                        {isloggedIn && (
-
-
-                            <li >
-
-                                <div className="w-full flex item-center justify-center">
-                                    <button className=" btn-primary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
-                                        <Link to="/user/profile">Profile</Link>
-                                    </button>
-
-                                    <button className=" btn-secondary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
-                                        <Link onClick={handleLogout}>logout</Link>
-                                    </button>
-
-                                </div>
-
+                            <li>
+                                <Link to="/products">All Products</Link>
                             </li>
 
-                        )}
+
+                            <li>
+                                <Link to="/contact">Contact Us</Link>
+                            </li>
+
+
+                            <li>
+                                <Link to="/about">About Us</Link>
+                            </li>
+
+
+                            {!isloggedIn && (
+
+
+                                <li className='absolute bottom-4 w-[90%]'>
+
+                                    <div className="w-full flex item-center justify-center">
+                                        <button className=" btn-primary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
+                                            <Link to="/login">Login</Link>
+                                        </button>
+
+                                        <button className=" btn-secondary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
+                                            <Link to="/signup">Signup</Link>
+                                        </button>
+
+                                    </div>
+
+                                </li>
+
+                            )}
+
+                            {isloggedIn && (
+
+
+                                <li >
+
+                                    <div className="w-full flex item-center justify-center">
+                                        <button className=" btn-primary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
+                                            <Link to="/user/profile">Profile</Link>
+                                        </button>
+
+                                        <button className=" btn-secondary w-full px-4 py-1 font-semibold text-white rounded-md bg-yellow-500 hover:bg-yellow-600 transition-colors duration-300">
+                                            <Link onClick={handleLogout}>logout</Link>
+                                        </button>
+
+                                    </div>
+
+                                </li>
+
+                            )}
 
 
 
 
 
-                    </ul>
+                        </ul>
+                    </div>
+
                 </div>
 
-            </div>
 
-           
 
-            {children}
+                {children}
 
-            <Footer />
+
+
+
+
+                <Footer />
 
         </div>
     );
