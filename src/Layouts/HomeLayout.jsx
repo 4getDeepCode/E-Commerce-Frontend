@@ -5,7 +5,7 @@ import Footer from '../Components/Footer';
 import { useDispatch } from 'react-redux';
 import { useSelector as userSelector } from 'react-redux';
 import { useSelector as useSelectort } from 'react-redux';
-import Logo from '../Assets/moto.jpeg'
+import { logout } from '../Redux/Slices/AuthSlice';
 
 
 
@@ -37,10 +37,10 @@ function HomeLayout({ children }) {
     }
 
 
-    function handleLogout(e) {
+   async function handleLogout(e) {
         e.preventDefault();
-        // const res = await dispatch(logout()); 
-        // if (res?.payload?.success) 
+        const res = await dispatch(logout()); 
+        if (res?.payload?.success) 
 
         navigate('/');
 
