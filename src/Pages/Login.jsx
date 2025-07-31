@@ -71,7 +71,7 @@ async function onLogin(event) {
                 <form  onSubmit={onLogin} noValidate className="flex flex-col items-center justify-center rounded-lg gap-3 p-4 text-white shadow-xl bg-[#1A2238] w-96 ">
 
                     <h1 className="text-3xl font-bold text-center">
-                       Login here
+                       Login Here
                     </h1>
 
                 
