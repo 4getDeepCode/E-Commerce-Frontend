@@ -33,6 +33,12 @@ const productSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
 
+        builder.addCase(getAllProducts.fulfilled, (state, action) => {
+            if(action.payload){
+                state.productData = [...action.payload];
+            }
+        })
+
 
     }
 })
