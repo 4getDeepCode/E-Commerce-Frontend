@@ -11,6 +11,8 @@ import ProductList from './Pages/Product/ProductList'
 import Contact from './Pages/Product/Contact'
 import Denied from './Pages/Denied'
 import ProductDescription from './Pages/Product/ProductDescription'
+import RequireAuth from './Components/Auth/RequireAuth'
+import CreateProduct from './Pages/Product/CreateProduct'
 
 
 const App = () => {
@@ -26,7 +28,10 @@ const App = () => {
         <Route path="/product/description" element={<ProductDescription/>} ></Route>
 
         <Route path="/contact" element={<Contact />} ></Route>
-        <Route path="/denied" element={<Denied />} ></Route>
+        <Route  element={<RequireAuth allowedRoles={["ADMIN"]} />} >
+        <Route path="/product/create" element={<CreateProduct />} ></Route>
+
+        </Route>
 
 
         <Route path="*" element={<NotFound />} ></Route>

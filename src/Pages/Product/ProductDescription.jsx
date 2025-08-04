@@ -6,59 +6,59 @@ import { useSelector } from "react-redux";
 function ProductDescription() {
 
     const { state } = useLocation();
-    const { role, data } = useSelector((state)=>state.auth);
+    const { role, data } = useSelector((state) => state.auth);
 
     return (
 
         <HomeLayout>
 
             <div className="min-h-[90vh] py-12 px-20 flex flex-col items-center justify-center text-white">
-            <div className="grid grid-cols-2 gap-10 py-10 relative">
-                <div className="space-y-5 ">
-                    <img
-                        src="{state?.thumbnail?.secure_url}"
-                        alt="thumbnail"
-                        className=" w-full h-64 "
+                <div className="grid grid-cols-2 gap-10 py-10 relative">
+                    <div className="space-y-5 ">
+                        <img
+                            src="{state?.thumbnail?.secure_url}"
+                            alt="thumbnail"
+                            className=" w-full h-64 "
 
-                    />
+                        />
 
-                    <div className="space-y-4">
-                        <div className="flex flex-col items-center justify-between text-xl ">
-                            <p className="font-semibold">
-                            <span className="text-yellow-500 font-bold">
-                                Total Product : {" "}
-                            </span>
-                            {state?.numberOfProducts}
-                            </p>
+                        <div className="space-y-4">
+                            <div className="flex flex-col items-center justify-between text-xl ">
+                                <p className="font-semibold">
+                                    <span className="text-yellow-500 font-bold">
+                                        Total Product : {" "}
+                                    </span>
+                                    {state?.numberOfProducts}
+                                </p>
 
-                             <p className="font-semibold">
-                            <span className="text-yellow-500 font-bold">
-                                CreatedBy : {" "}
-                            </span>
-                            {state?.createdby}
-                            </p>
+                                <p className="font-semibold">
+                                    <span className="text-yellow-500 font-bold">
+                                        CreatedBy : {" "}
+                                    </span>
+                                    {state?.createdby}
+                                </p>
 
-                        </div>  
+                            </div>
 
-                        {
-                            role === "ADMIN" || data?.subscription?.status==="ACTIVE" ? (
+                            {
+                                role === "ADMIN" || data?.subscription?.status === "ACTIVE" ? (
 
-                                <button className="bg-yellow-500 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-600 transition-all ease-in-out duration-300">
-                                    watch products
-                                </button>
+                                    <button className="bg-yellow-500 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-600 transition-all ease-in-out duration-300">
+                                        watch products
+                                    </button>
 
-                            ) :(
+                                ) : (
 
-                                <button className="bg-yellow-500 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-600 transition-all ease-in-out duration-300">
-                                    subscribe
-                                </button>
-                            )
-                        }
+                                    <button className="bg-yellow-500 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-600 transition-all ease-in-out duration-300">
+                                        subscribe
+                                    </button>
+                                )
+                            }
+
+                        </div>
+
 
                     </div>
-
-
-                </div>
 
 
                     <div className="space-y-2 text-xl ">
@@ -73,11 +73,11 @@ function ProductDescription() {
                             {state?.description}
                         </p>
 
-                        
+
                     </div>
 
 
-            </div>
+                </div>
 
             </div>
 
