@@ -10,6 +10,7 @@ import Login from './Pages/Login'
 import ProductList from './Pages/Product/ProductList'
 import Contact from './Pages/Product/Contact'
 import Denied from './Pages/Denied'
+import ProductDescription from './Pages/Product/ProductDescription'
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} ></Route>
         <Route path="/login" element={<Login />} ></Route>
         <Route path="/products" element={<ProductList />} ></Route>
+        <Route path="/product/description" element={<ProductDescription/>} ></Route>
 
         <Route path="/contact" element={<Contact />} ></Route>
         <Route path="/denied" element={<Denied />} ></Route>
