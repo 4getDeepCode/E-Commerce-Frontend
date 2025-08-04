@@ -8,6 +8,9 @@ import NotFound from './Pages/NotFound'
 import Signup from './Pages/Signup'
 import Login from './Pages/Login'
 import ProductList from './Pages/Product/ProductList'
+import Contact from './Pages/Product/Contact'
+import Denied from './Pages/Denied'
+
 
 const App = () => {
   return (
@@ -20,7 +23,8 @@ const App = () => {
         <Route path="/login" element={<Login />} ></Route>
         <Route path="/products" element={<ProductList />} ></Route>
 
-         <Route path="/contact" element={<Contact/>} ></Route>
+        <Route path="/contact" element={<Contact />} ></Route>
+        <Route path="/denied" element={<Denied />} ></Route>
 
 
         <Route path="*" element={<NotFound />} ></Route>

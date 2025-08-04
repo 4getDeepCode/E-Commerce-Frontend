@@ -54,13 +54,14 @@ import { isEmail, isValidPassword } from "../Helpers/regexMatcher";
 
 async function createNewAccount(event) {
         event.preventDefault();
+
         if(!signUpData.email || !signUpData.password || !signUpData.fullname || !signUpData.avatar) {
             toast.error("Please fill all the details");
             return;
         }
 
         // checking name field length
-        if(signUpData.fullname.length < 5) {
+        if(!signUpData.fullname.length > 5) {
             toast.error("Name should be atleast of 5 characters")
             return;
         }
