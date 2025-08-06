@@ -16,7 +16,7 @@ import { isEmail, isValidPassword } from "../Helpers/regexMatcher";
 
     const [previewImage, setPreviewImage] = useState("");
     const [signUpData, setSignupData] = useState({
-        fullname: "",
+        fullName: "",
         email: "",
         password: "",
         avatar:""
@@ -55,13 +55,13 @@ import { isEmail, isValidPassword } from "../Helpers/regexMatcher";
 async function createNewAccount(event) {
         event.preventDefault();
 
-        if(!signUpData.email || !signUpData.password || !signUpData.fullname || !signUpData.avatar) {
+        if(!signUpData.email || !signUpData.password || !signUpData.fullName || !signUpData.avatar) {
             toast.error("Please fill all the details");
             return;
         }
 
         // checking name field length
-        if(!signUpData.fullname.length > 5) {
+        if(!signUpData.fullName.length > 5) {
             toast.error("Name should be atleast of 5 characters")
             return;
         }
@@ -77,7 +77,7 @@ async function createNewAccount(event) {
         }
 
         const formData = new FormData();
-        formData.append("fullname", signUpData.fullname);
+        formData.append("fullName", signUpData.fullName);
         formData.append("email", signUpData.email);
         formData.append("password", signUpData.password);
         formData.append("avatar", signUpData.avatar);
@@ -129,16 +129,16 @@ async function createNewAccount(event) {
 
                     <div className="flex flex-col gap-2 w-full">
 
-                        <label htmlFor="fullname" className="text-sm font-semibold">Fullname</label>
+                        <label htmlFor="fullName" className="text-sm font-semibold">Fullname</label>
                         <input
                             type="text"
                             required
-                            id="fullname"
-                            name="fullname"
-                            placeholder="Enter your fullname"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your fullName"
                             className="w-full p-2 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
                             onChange={handaleUserInput}
-                            value={signUpData.fullname}
+                            value={signUpData.fullName}
                         />
 
                     </div>

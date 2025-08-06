@@ -14,6 +14,7 @@ import ProductDescription from './Pages/Product/ProductDescription'
 import RequireAuth from './Components/Auth/RequireAuth'
 import CreateProduct from './Pages/Product/CreateProduct'
 import Profile from './Pages/User/Profile'
+import EditProfile from './Pages/User/EditProfile'
 
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
 
         <Route  element={<RequireAuth allowedRoles={["ADMIN", "USER"]} />} >
         <Route path="/user/profile" element={<Profile />} ></Route>
+        <Route path="/user/editprofile" element={<EditProfile />} ></Route>
         </Route>
 
         <Route path="*" element={<NotFound />} ></Route>
