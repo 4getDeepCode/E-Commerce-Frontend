@@ -15,8 +15,11 @@ import RequireAuth from './Components/Auth/RequireAuth'
 import CreateProduct from './Pages/Product/CreateProduct'
 import Profile from './Pages/User/Profile'
 import EditProfile from './Pages/User/EditProfile'
-import Checkout from './Pages/Payment/Checout'
+import Checkout from './Pages/Payment/Checkout'
 import CheckoutSuccess from './Pages/Payment/CheckoutSuccess'
+import CheckoutFailure from './Pages/Payment/CheckoutFailure'
+
+
 
 
 const App = () => {
@@ -43,6 +46,7 @@ const App = () => {
         <Route path="/checkout" element={<Checkout />} ></Route>
         <Route path="/checkout/success" element={<CheckoutSuccess />} ></Route>
         <Route path='/checkout/fail' element={<CheckoutFailure />} />
+        
         </Route>
 
         <Route path="*" element={<NotFound />} ></Route>

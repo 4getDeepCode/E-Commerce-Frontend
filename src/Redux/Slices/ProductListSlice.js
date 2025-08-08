@@ -8,9 +8,9 @@ const initialState = {
 }
 
 
-export const getProductLists = createAsyncThunk("/product/list/get", async (cid) => {
+export const getProductLists = createAsyncThunk("/product/list/get", async (pid) => {
     try {
-        const response = axiosInstance.get(`/products/${cid}`);
+        const response = axiosInstance.get(`/products/${pid}`);
         toast.promise(response, {
             loading: "Fetching product lists",
             success: "Products fetched successfully",
