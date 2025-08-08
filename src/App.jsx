@@ -42,6 +42,7 @@ const App = () => {
         <Route path="/user/editprofile" element={<EditProfile />} ></Route>
         <Route path="/checkout" element={<Checkout />} ></Route>
         <Route path="/checkout/success" element={<CheckoutSuccess />} ></Route>
+        <Route path='/checkout/fail' element={<CheckoutFailure />} />
         </Route>
 
         <Route path="*" element={<NotFound />} ></Route>
