@@ -22,7 +22,7 @@ export const getRazorPayId = createAsyncThunk("/razorpay/getId", async () => {
 })
 
 
-export const purchaseCourseBundle = createAsyncThunk("/purchaseCourse", async () => {
+export const purchaseProductBundle = createAsyncThunk("/purchaseProduct", async () => {
     try {
         const response = await axiosInstance.post("/payments/subscribe");
         console.log(response)
@@ -61,7 +61,7 @@ export const getPaymentRecord = createAsyncThunk("/payments/record", async () =>
     }
 });
 
-export const cancelCourseBundle = createAsyncThunk("/payments/cancel", async () => {
+export const cancelProductBundle = createAsyncThunk("/payments/cancel", async () => {
     try {
         const response = axiosInstance.post("/payments/unsubscribe");
         toast.promise(response, {
@@ -86,7 +86,7 @@ const razorpaySlice = createSlice({
         .addCase(getRazorPayId.fulfilled, (state, action) =>{
             state.key = action?.payload?.key;
         })
-        .addCase(purchaseCourseBundle.fulfilled, (state, action) => {
+        .addCase(purchaseProductBundle.fulfilled, (state, action) => {
             state.subscription_id = action?.payload?.subscription_id;
         })
         .addCase(verifyUserPayment.fulfilled, (state, action) => {

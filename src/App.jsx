@@ -15,6 +15,8 @@ import RequireAuth from './Components/Auth/RequireAuth'
 import CreateProduct from './Pages/Product/CreateProduct'
 import Profile from './Pages/User/Profile'
 import EditProfile from './Pages/User/EditProfile'
+import Checkout from './Pages/Payment/Checout'
+import CheckoutSuccess from './Pages/Payment/CheckoutSuccess'
 
 
 const App = () => {
@@ -29,6 +31,7 @@ const App = () => {
         <Route path="/products" element={<ProductList />} ></Route>
         <Route path="/product/description" element={<ProductDescription/>} ></Route>
         <Route path="/contact" element={<Contact />} ></Route>
+        <Route path="/denied" element={<Denied />} />
 
         <Route  element={<RequireAuth allowedRoles={["ADMIN"]} />} >
         <Route path="/product/create" element={<CreateProduct />} ></Route>
@@ -37,6 +40,8 @@ const App = () => {
         <Route  element={<RequireAuth allowedRoles={["ADMIN", "USER"]} />} >
         <Route path="/user/profile" element={<Profile />} ></Route>
         <Route path="/user/editprofile" element={<EditProfile />} ></Route>
+        <Route path="/checkout" element={<Checkout />} ></Route>
+        <Route path="/checkout/success" element={<CheckoutSuccess />} ></Route>
         </Route>
 
         <Route path="*" element={<NotFound />} ></Route>
