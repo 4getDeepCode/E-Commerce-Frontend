@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import HomeLayout from '../../Layouts/HomeLayout';
-import { getRazorPayId, purchaseCourseBundle, verifyUserPayment } from "../../Redux/Slices/RazorpaySlice";
+import { getRazorPayId, purchaseProductBundle, verifyUserPayment } from "../../Redux/Slices/RazorpaySlice";
 
 function Checkout() {
 
@@ -28,7 +28,7 @@ function Checkout() {
         const options = {
             key: razorpayKey,
             subscription_id: subscription_id,
-            name: "Coursify Pvt. Ltd.",
+            name: "Productify Pvt. Ltd.",
             description: "Subscription",
             theme: {
                 color: '#F37254'
@@ -52,7 +52,7 @@ function Checkout() {
 
     async function load() {
         await dispatch(getRazorPayId());
-        await dispatch(purchaseCourseBundle());
+        await dispatch(purchaseProductBundle());
     }
 
     useEffect(() => {
@@ -69,13 +69,13 @@ function Checkout() {
                     <h1 className="bg-yellow-500 absolute top-0 w-full text-center py-4 text-2xl font-bold rounded-tl0lg rounded-tr-lg">Subscription Bundle</h1>
                     <div className="px-4 space-y-5 text-center">
                         <p className="text-[17px]">
-                            This purchase will allow you to access all available course
+                            This purchase will allow you to access all available product
                             of our platform for {" "} 
                             <span className="text-yellow-500 font-bold">
                                 <br />
                                 1 Year duration
                             </span> { " " }
-                            All the existing and new launched courses will be also available
+                            All the existing and new launched product will be also available
                         </p>
 
                         <p className="flex items-center justify-center gap-1 text-2xl font-bold text-yellow-500">
